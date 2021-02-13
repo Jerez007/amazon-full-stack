@@ -11,7 +11,12 @@ function Login() {
   const signIn = (e) => {
     e.preventDefault(); //prevents refreshing
 
-    
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push('/');
+      })
+      .catch((error) => alert(error.message));
   };
 
   const register = (e) => {
@@ -20,7 +25,6 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log(auth);
         if(auth) {
           history.push('/'); //redirects if user is not empty
         }
