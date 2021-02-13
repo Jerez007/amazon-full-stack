@@ -30,7 +30,7 @@ const Home = () => {
         <div className="home__row">
           <Product
             id="4903851"
-            title="Govee LED Lights Strip, 16.4FT RGB Lights with Remote Control, 20 Colors..."
+            title="Govee LED Strip Lights 16.4ft Waterproof Color Changing Light Strips with Remote, Bright 5050 and Multicolor RGB LED Lights for Room, Bedroom, Kitchen, Yard, Party, Christmas"
             price={21.54}
             image="https://images-na.ssl-images-amazon.com/images/I/71PfcLNNkmL._AC_SL1500_.jpg"
             rating={4}
