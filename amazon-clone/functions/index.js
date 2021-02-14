@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
 // eslint-disable-next-line max-len
-    ""
+    "sk_test_51IKcqBGq0pDmnvbrgkkzMNvBvH3WBNRc0Yod0zhPvQAECfY1fcy6iG3JCFp1WfiKrPRipBeW8Z4eUIpCVLASuXfJ00G9dSyaVE"
 );
 
 // API
@@ -14,12 +14,12 @@ app.use(cors({origin: true}));
 app.use(express.json());
 
 // API Routes
-app.get("/", (request, response ) => response.status(200).send("hello"));
+app.get("/", (request, response) => response.status(200).send("hello"));
 
 app.post("/payments/create", async (request, response) => {
-  const total = request.query.total; //amount in subunits
+  const total = request.query.total; // amount in subunits
 
-  console.log('Payment Request Received >>>>', total);
+  console.log("Payment Request Received >>>>", total);
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
@@ -30,11 +30,10 @@ app.post("/payments/create", async (request, response) => {
   response.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });
-
 });
 
 // Listen
 exports.api = functions.https.onRequest(app);
 
-//example endpoint
-// http://localhost:5001/clone-b037a/us-central1/api
+//  example endpoint
+//  http://localhost:5001/clone-b037a/us-central1/api
