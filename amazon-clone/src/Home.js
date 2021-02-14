@@ -1,13 +1,26 @@
 import React from "react";
 import './Home.css';
-import amazonHero from './images/amazon_hero.jpg'
+import amazonHero from './images/amazon_hero.jpg';
+import amazonHero2 from "./images/amazon_hero2.jpg";
+import amazonHero3 from "./images/amazon_hero3.jpg";
+import amazonHero4 from "./images/amazon_hero4.jpg";
 import Product from "./Product";
 
 const Home = () => {
   return (
     <div className="home">
       <div className="home__container">
-        <img className="home__image" src={amazonHero} alt="amazon hero" />
+        <div className="slider">
+          <figure>
+            <img className="home__image" src={amazonHero} alt="amazon hero" />
+            <img className="home__image" src={amazonHero2} alt="amazon hero" />
+            <img className="home__image" src={amazonHero3} alt="amazon hero" />
+            <img className="home__image" src={amazonHero4} alt="amazon hero" />
+            <img className="home__image" src={amazonHero} alt="amazon hero" />
+          </figure>
+        </div>
+
+        {/* <img className="home__image" src={amazonHero} alt="amazon hero" /> */}
 
         <div className="home__row">
           <Product
