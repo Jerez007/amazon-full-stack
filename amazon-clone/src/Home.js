@@ -70,7 +70,15 @@ const Home = () => {
             id="90829332"
             title="Samsung U28E590D 28-Inch UHD LED-Lit Monitor"
             price={288.99}
-            image="https://images-na.ssl-images-amazon.com/images/I/A1R-83fsyaL._AC_SL1500_.jpg"
+            image="https://images-na.ssl-images-amazon.com/images/I/81NCnG8UvYL._AC_SL1500_.jpg"
+            rating={4}
+          />
+
+          <Product
+            id="93730829332"
+            title="Foxemart Computer Desk 47 Home Office Writing Desk with Storage Shelf"
+            price={98.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/71uBfqk8bkL._AC_SL1500_.jpg"
             rating={4}
           />
         </div>
