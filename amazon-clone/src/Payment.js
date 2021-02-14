@@ -8,6 +8,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import "./Payment.css";
 import { getBasketTotal } from "./reducer";
 import { useStateValue } from "./StateProvider";
+import { db } from './firebase';
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -35,6 +36,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  console.log('The Secret is >>>>', clientSecret);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true); //prevents buy button from being clicked more than once
@@ -47,9 +50,24 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         //payment confirmation
+        db.collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+          })
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        // empties the basket
+        dispatch({
+          type: "EMPTY_BASKET"
+        });
 
         history.replace('/orders');
       });
@@ -112,7 +130,7 @@ function Payment() {
 
               <div className="payment__priceContainer">
                 <CurrencyFormat
-                  renderText={(value) => <h3>Order Total: {value}</h3>}
+                  renderText={(value) => <h4>Order Total: {value}</h4>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
                   displayType={"text"}
