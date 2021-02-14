@@ -1,15 +1,18 @@
-import React from 'react';
-import './HeaderFooter.css';
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+import React from "react";
+import "./HeaderFooter.css";
+import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 
 function HeaderFooter() {
   return (
     <div className="headerFooter">
       <div className="headerFooter__option">
-        <LocationOnIcon />
+        <LocationOnOutlinedIcon className="headerFooter__locationIcon" />
 
         <div className="option__deliver">
-          <p>Deliver to</p>
+          <p>
+            <small>Deliver to</small>
+          </p>
+
           <p>
             <strong>Canada</strong>
           </p>
@@ -17,23 +20,23 @@ function HeaderFooter() {
 
         <div className="option__links">
           <p>
-            <a href="#">Today's Deals</a>
+            <a href="/">Today's Deals</a>
           </p>
 
           <p>
-            <a href="#">Customer Service</a>
+            <a href="/">Customer Service</a>
           </p>
 
           <p>
-            <a href="#">Gift Cards</a>
+            <a href="/">Gift Cards</a>
           </p>
 
           <p>
-            <a href="#">Sell</a>
+            <a href="/">Sell</a>
           </p>
 
           <p>
-            <a href="#">Registry</a>
+            <a href="/">Registry</a>
           </p>
         </div>
       </div>
@@ -41,4 +44,4 @@ function HeaderFooter() {
   );
 }
 
-export default HeaderFooter
+export default HeaderFooter;

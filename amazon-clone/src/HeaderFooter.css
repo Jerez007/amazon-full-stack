@@ -1,12 +1,14 @@
 .headerFooter {
+  display: flex;
   height: 50px;
-  background-color: #0F1111;
+  background-color: #232F3E;
   color: rgb(241, 232, 232); 
 }
 
 .headerFooter__option {
   display: flex;
   align-items: center;
+  margin-left: 12px;
 }
 
 .option__links {
@@ -17,4 +19,20 @@
   text-decoration: none;
   color: rgb(236, 231, 231);
   font-size: 13px;
+}
+
+.option__deliver {
+  margin-right: 45px;
+}
+
+.option__links p {
+  margin: 6px;
+}
+
+.option__deliver small {
+  color: rgb(236, 231, 231);
+}
+
+.headerFooter__locationIcon {
+  color: white;
 }
