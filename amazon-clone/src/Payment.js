@@ -1,8 +1,9 @@
 /* eslint-disable no-restricted-globals */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link } from "react-router-dom";
+import axios from "./axios";
 import CheckoutProduct from "./CheckoutProduct";
 import "./Payment.css";
 import { getBasketTotal } from "./reducer";
@@ -19,8 +20,26 @@ function Payment() {
   const [disabled, setDisabled] = useState(true);
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
+  const [clientSecret, setClientSecret] = useState(true);
 
-  const handleSubmit = (e) => {};
+  useEffect(() => {
+    //stripe secret is generated here
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: 'post',
+        url: `/payments/create?total=${getBasketTotal(basket)}`
+      })
+    }
+    getClientSecret();
+  },[basket]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setProcessing(true); //prevents buy button from being clicked more than once
+    
+
+    // const payload = await stripe
+  };
 
   const handleChange = (e) => {
     setDisabled(event.empty);
