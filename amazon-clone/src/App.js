@@ -22,7 +22,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS LOGGED IN >>> ", authUser);
 
       if (authUser) {
         //user just logged in or has already logged in(but refreshes the page)
